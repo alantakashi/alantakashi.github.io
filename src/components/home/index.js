@@ -10,14 +10,11 @@ class Home extends Component {
   }
 
   handleUpVote (key) {
-    // console.log(this.props.posts[key])
     this.props.upVote(key)
-    // this.props.posts[key].upvote += 1
   }
 
   handleDownVote (key) {
-    // this.props.downVote(this.props.posts[key])
-    this.props.posts[key].downvote += 1
+    this.props.downVote(key)
   }
 
   render () {

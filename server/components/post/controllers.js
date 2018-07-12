@@ -19,10 +19,15 @@ const postUpVote = async (req, res) => {
   postToUpVote[req.params.key].upvote += 1
   posts.update(postToUpVote[req.params.key])
 
-  console.log('postToUpVote', postToUpVote[req.params.key])
-  // console.log('post', post[req.params.key])
-
-  return res.status(200).json({message: 'done'})
+  return res.status(200).json(posts.data)
 }
 
-export { getPosts, createPost, postUpVote }
+const postDownVote = async (req, res) => {
+  const postToDownVote = posts.find({})
+  postToDownVote[req.params.key].downvote += 1
+  posts.update(postToDownVote[req.params.key])
+
+  return res.status(200).json(posts.data)
+}
+
+export { getPosts, createPost, postUpVote, postDownVote }
