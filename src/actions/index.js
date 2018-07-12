@@ -1,3 +1,3 @@
-import { getPosts, addPost } from './PostsActions'
+import { getPosts, createPost } from './PostsActions'
 
-export { getPosts, addPost }
+export { getPosts, createPost }

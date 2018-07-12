@@ -14,7 +14,7 @@ class Home extends Component {
       <div>
         <div className='row'>
           <div className='col-sm'>
-            <NavLink to='/addPost'>ADD POST</NavLink>
+            <NavLink to='/addPost' className='btn btn-primary'>ADD POST</NavLink>
           </div>
         </div>
 

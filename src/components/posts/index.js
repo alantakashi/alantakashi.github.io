@@ -1,3 +1,3 @@
-import { AddPost } from './addPost'
+import AddPost from './addPost'
 
 export { AddPost }
