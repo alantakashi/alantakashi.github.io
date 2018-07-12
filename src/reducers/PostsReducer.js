@@ -1,4 +1,4 @@
-import { GET_POSTS_SUCCESS, ADD_POST_SUCCESS } from '../types'
+import { GET_POSTS_SUCCESS, ADD_POST_SUCCESS, UPVOTE_POST_SUCCESS } from '../types'
 
 const INITIAL_STATE = {
   posts: []
@@ -12,6 +12,9 @@ export default (state = INITIAL_STATE, action) => {
 
     case ADD_POST_SUCCESS:
       return {...state, posts: [...state.posts, ...action.payload]}
+
+    case UPVOTE_POST_SUCCESS:
+      console.log('action.payload', action.payload)
 
     default:
       return state

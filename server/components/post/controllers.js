@@ -4,9 +4,7 @@ const lokidb = new loki('db.json')
 const posts = lokidb.addCollection('posts')
 
 const getPosts = async (req, res, next) => {
-  console.log(posts.find({}))
   res.end(JSON.stringify(posts.find({})))
-  // return res.status(200).json(posts.find({}))
 }
 
 const createPost = async (req, res) => {
@@ -16,4 +14,15 @@ const createPost = async (req, res) => {
   return res.status(200).json(posts.data)
 }
 
-export { getPosts, createPost }
+const postUpVote = async (req, res) => {
+  const postToUpVote = posts.find({})
+  postToUpVote[req.params.key].upvote += 1
+  posts.update(postToUpVote[req.params.key])
+
+  console.log('postToUpVote', postToUpVote[req.params.key])
+  // console.log('post', post[req.params.key])
+
+  return res.status(200).json({message: 'done'})
+}
+
+export { getPosts, createPost, postUpVote }

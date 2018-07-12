@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getPosts } from '../../actions'
+import { getPosts, upVote, downVote } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
 class Home extends Component {
   componentDidMount () {
     this.props.getPosts()
+  }
+
+  handleUpVote (key) {
+    // console.log(this.props.posts[key])
+    this.props.upVote(key)
+    // this.props.posts[key].upvote += 1
+  }
+
+  handleDownVote (key) {
+    // this.props.downVote(this.props.posts[key])
+    this.props.posts[key].downvote += 1
   }
 
   render () {
@@ -21,11 +32,21 @@ class Home extends Component {
         <div className='row'>
           <div className='col-sm'>
             <ul className='list-group'>
-              <li className='list-group-item'>Cras justo odio</li>
-              <li className='list-group-item'>Dapibus ac facilisis in</li>
-              <li className='list-group-item'>Morbi leo risus</li>
-              <li className='list-group-item'>Porta ac consectetur ac</li>
-              <li className='list-group-item'>Vestibulum at eros</li>
+              {
+                this.props.posts.map((post, i) => {
+                  return (
+                    <li key={i} className='list-group-item'>
+                      <div className='post-container'>
+                        <div className='post-vote'>
+                          <span onClick={this.handleUpVote.bind(this, i)}><i className='material-icons'>thumb_up</i> {post.upvote}</span>
+                          <span onClick={this.handleDownVote.bind(this, i)}><i className='material-icons'>thumb_down</i> {post.downvote}</span>
+                        </div>
+                        {post.title}
+                      </div>
+                    </li>
+                  )
+                })
+              }
             </ul>
           </div>
         </div>
@@ -42,7 +63,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    getPosts
+    getPosts,
+    upVote,
+    downVote
   }, dispatch)
 }
 
