@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createPost } from '../../actions'
+import { NavLink } from 'react-router-dom'
 
 class AddPost extends Component {
   constructor (props) {
@@ -33,9 +34,9 @@ class AddPost extends Component {
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>
             <label htmlFor='title'>Post Title</label>
-            <input id='title' className='form-control' name='title' placeholder='Please enter post title' value={title} onChange={this.onChange} />
+            <input id='title' className='form-control' name='title' placeholder='Please enter post title' value={title} onChange={this.onChange} maxLength='255' />
           </div>
-          <button type='submit' className='btn btn-primary'>Submit</button>
+          <button type='submit' className='btn btn-primary'>Submit</button>&nbsp;&nbsp;<NavLink to='/'>Cancel</NavLink>
         </form>
       </div>
     )

@@ -6,15 +6,18 @@ import { NavLink } from 'react-router-dom'
 
 class Home extends Component {
   componentDidMount () {
+    // get post immediately after component is mounted
     this.props.getPosts()
   }
 
-  handleUpVote (key) {
-    this.props.upVote(key)
+  handleUpVote (guid) {
+    // passing guid to determine which topic to upvote
+    this.props.upVote(guid)
   }
 
-  handleDownVote (key) {
-    this.props.downVote(key)
+  handleDownVote (guid) {
+    // passing guid to determine which topic to downvote
+    this.props.downVote(guid)
   }
 
   render () {
@@ -22,28 +25,27 @@ class Home extends Component {
       <div>
         <div className='row'>
           <div className='col-sm'>
-            <NavLink to='/addPost' className='btn btn-primary'>ADD POST</NavLink>
+            <NavLink to='/addPost' className='btn btn-primary'>Add Topic</NavLink>
           </div>
         </div>
 
         <div className='row'>
           <div className='col-sm'>
             <ul className='list-group'>
-              {
-                this.props.posts.map((post, i) => {
-                  return (
-                    <li key={i} className='list-group-item'>
-                      <div className='post-container'>
-                        <div className='post-vote'>
-                          <span onClick={this.handleUpVote.bind(this, i)}><i className='material-icons'>thumb_up</i> {post.upvote}</span>
-                          <span onClick={this.handleDownVote.bind(this, i)}><i className='material-icons'>thumb_down</i> {post.downvote}</span>
-                        </div>
-                        {post.title}
+              {this.props.posts.length > 0 ? '' : (<li className='list-group-item'>No topic found</li>)}
+              {this.props.posts.sort((a, b) => b.upvote - a.upvote).slice(0, 10).map((post, i) => {
+                return (
+                  <li key={i} className='list-group-item'>
+                    <div className='post-container'>
+                      <div className='post-vote'>
+                        <span onClick={this.handleUpVote.bind(this, post.guid)}><i className='material-icons'>thumb_up</i> {post.upvote}</span>
+                        <span onClick={this.handleDownVote.bind(this, post.guid)}><i className='material-icons'>thumb_down</i> {post.downvote}</span>
                       </div>
-                    </li>
-                  )
-                })
-              }
+                      <p>{post.title}</p>
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

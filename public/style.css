@@ -19,3 +19,32 @@ body {
 #root {
 	padding: 16px;
 }
+
+.post-container {
+	display: flex;
+  flex-direction: row;
+
+}
+
+.post-vote {
+	display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.post-vote span {
+	display: flex;
+  align-items: center;
+	margin-right: 16px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.post-vote i {
+	margin-right: 8px;
+	font-size: 16px;
+}
+
+.post-container p {
+	margin: 0;	
+}

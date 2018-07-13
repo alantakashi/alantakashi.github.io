@@ -747,18 +747,19 @@ module.exports = warning;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(92);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createBrowserHistory", function() { return __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(95);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__createHashHistory__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createHashHistory", function() { return __WEBPACK_IMPORTED_MODULE_1__createHashHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(96);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(14);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createLocation", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "locationsAreEqual", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(10);
-/* unused harmony reexport parsePath */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "parsePath", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["d"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createPath", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["b"]; });
 
 
 
@@ -3223,7 +3224,7 @@ var Link = function (_React$Component) {
 
     var history = this.context.router.history;
 
-    var location = typeof to === "string" ? Object(__WEBPACK_IMPORTED_MODULE_3_history__["c" /* createLocation */])(to, null, null, history.location) : to;
+    var location = typeof to === "string" ? Object(__WEBPACK_IMPORTED_MODULE_3_history__["createLocation"])(to, null, null, history.location) : to;
 
     var href = history.createHref(location);
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", _extends({}, props, { onClick: this.handleClick, href: href, ref: innerRef }));
@@ -4233,6 +4234,10 @@ var _reduxLogger = __webpack_require__(115);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
+var _history = __webpack_require__(143);
+
+var _history2 = _interopRequireDefault(_history);
+
 var _main = __webpack_require__(116);
 
 var _main2 = _interopRequireDefault(_main);
@@ -4256,8 +4261,8 @@ var Routes = _react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
   _react2.default.createElement(
-    _reactRouterDom.BrowserRouter,
-    null,
+    _reactRouterDom.Router,
+    { history: _history2.default },
     _react2.default.createElement(
       _main2.default,
       null,
@@ -25547,7 +25552,7 @@ var BrowserRouter = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["a" /* createBrowserHistory */])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["createBrowserHistory"])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   BrowserRouter.prototype.componentWillMount = function componentWillMount() {
@@ -26526,7 +26531,7 @@ var HashRouter = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["b" /* createHashHistory */])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["createHashHistory"])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   HashRouter.prototype.componentWillMount = function componentWillMount() {
@@ -26602,7 +26607,7 @@ var MemoryRouter = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["d" /* createMemoryHistory */])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["createMemoryHistory"])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   MemoryRouter.prototype.componentWillMount = function componentWillMount() {
@@ -26894,10 +26899,10 @@ var Redirect = function (_React$Component) {
   };
 
   Redirect.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
-    var prevTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["c" /* createLocation */])(prevProps.to);
-    var nextTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["c" /* createLocation */])(this.props.to);
+    var prevTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(prevProps.to);
+    var nextTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(this.props.to);
 
-    if (Object(__WEBPACK_IMPORTED_MODULE_4_history__["f" /* locationsAreEqual */])(prevTo, nextTo)) {
+    if (Object(__WEBPACK_IMPORTED_MODULE_4_history__["locationsAreEqual"])(prevTo, nextTo)) {
       __WEBPACK_IMPORTED_MODULE_2_warning___default()(false, "You tried to redirect to the same route you're currently on: " + ("\"" + nextTo.pathname + nextTo.search + "\""));
       return;
     }
@@ -27032,7 +27037,7 @@ var stripBasename = function stripBasename(basename, location) {
 };
 
 var createURL = function createURL(location) {
-  return typeof location === "string" ? location : Object(__WEBPACK_IMPORTED_MODULE_4_history__["e" /* createPath */])(location);
+  return typeof location === "string" ? location : Object(__WEBPACK_IMPORTED_MODULE_4_history__["createPath"])(location);
 };
 
 var staticHandler = function staticHandler(methodName) {
@@ -27070,7 +27075,7 @@ var StaticRouter = function (_React$Component) {
           context = _this$props.context;
 
       context.action = "PUSH";
-      context.location = addBasename(basename, Object(__WEBPACK_IMPORTED_MODULE_4_history__["c" /* createLocation */])(location));
+      context.location = addBasename(basename, Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(location));
       context.url = createURL(context.location);
     }, _this.handleReplace = function (location) {
       var _this$props2 = _this.props,
@@ -27078,7 +27083,7 @@ var StaticRouter = function (_React$Component) {
           context = _this$props2.context;
 
       context.action = "REPLACE";
-      context.location = addBasename(basename, Object(__WEBPACK_IMPORTED_MODULE_4_history__["c" /* createLocation */])(location));
+      context.location = addBasename(basename, Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(location));
       context.url = createURL(context.location);
     }, _this.handleListen = function () {
       return noop;
@@ -27109,7 +27114,7 @@ var StaticRouter = function (_React$Component) {
     var history = {
       createHref: this.createHref,
       action: "POP",
-      location: stripBasename(basename, Object(__WEBPACK_IMPORTED_MODULE_4_history__["c" /* createLocation */])(location)),
+      location: stripBasename(basename, Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(location)),
       push: this.handlePush,
       replace: this.handleReplace,
       go: staticHandler("go"),
@@ -27460,17 +27465,20 @@ var Home = function (_Component) {
   _createClass(Home, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      // get post immediately after component is mounted
       this.props.getPosts();
     }
   }, {
     key: 'handleUpVote',
-    value: function handleUpVote(key) {
-      this.props.upVote(key);
+    value: function handleUpVote(guid) {
+      // passing guid to determine which topic to upvote
+      this.props.upVote(guid);
     }
   }, {
     key: 'handleDownVote',
-    value: function handleDownVote(key) {
-      this.props.downVote(key);
+    value: function handleDownVote(guid) {
+      // passing guid to determine which topic to downvote
+      this.props.downVote(guid);
     }
   }, {
     key: 'render',
@@ -27489,7 +27497,7 @@ var Home = function (_Component) {
             _react2.default.createElement(
               _reactRouterDom.NavLink,
               { to: '/addPost', className: 'btn btn-primary' },
-              'ADD POST'
+              'Add Topic'
             )
           )
         ),
@@ -27502,7 +27510,14 @@ var Home = function (_Component) {
             _react2.default.createElement(
               'ul',
               { className: 'list-group' },
-              this.props.posts.map(function (post, i) {
+              this.props.posts.length > 0 ? '' : _react2.default.createElement(
+                'li',
+                { className: 'list-group-item' },
+                'No topic found'
+              ),
+              this.props.posts.sort(function (a, b) {
+                return b.upvote - a.upvote;
+              }).slice(0, 10).map(function (post, i) {
                 return _react2.default.createElement(
                   'li',
                   { key: i, className: 'list-group-item' },
@@ -27514,7 +27529,7 @@ var Home = function (_Component) {
                       { className: 'post-vote' },
                       _react2.default.createElement(
                         'span',
-                        { onClick: _this2.handleUpVote.bind(_this2, i) },
+                        { onClick: _this2.handleUpVote.bind(_this2, post.guid) },
                         _react2.default.createElement(
                           'i',
                           { className: 'material-icons' },
@@ -27525,7 +27540,7 @@ var Home = function (_Component) {
                       ),
                       _react2.default.createElement(
                         'span',
-                        { onClick: _this2.handleDownVote.bind(_this2, i) },
+                        { onClick: _this2.handleDownVote.bind(_this2, post.guid) },
                         _react2.default.createElement(
                           'i',
                           { className: 'material-icons' },
@@ -27535,7 +27550,11 @@ var Home = function (_Component) {
                         post.downvote
                       )
                     ),
-                    post.title
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      post.title
+                    )
                   )
                 );
               })
@@ -27583,11 +27602,19 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _types = __webpack_require__(53);
 
+var _history = __webpack_require__(143);
+
+var _history2 = _interopRequireDefault(_history);
+
+var _config = __webpack_require__(144);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Proceed to /src/config/config.js to modify host
+// get, create, upvote and downvote method for post actions, use es6 destructuring method to get host configuration
 var getPosts = function getPosts() {
   return function (dispatch) {
-    _axios2.default.get('http://localhost:8089/v2/posts').then(function (response) {
+    _axios2.default.get(_config.host + 'posts').then(function (response) {
       dispatch({ type: _types.GET_POSTS_SUCCESS, payload: response.data });
     }).catch(function (err) {
       dispatch({ type: _types.GET_POSTS_REJECTED, msg: err });
@@ -27597,8 +27624,9 @@ var getPosts = function getPosts() {
 
 var createPost = function createPost(post) {
   return function (dispatch) {
-    _axios2.default.post('http://localhost:8089/v2/post', post).then(function (response) {
+    _axios2.default.post(_config.host + 'post', post).then(function (response) {
       dispatch({ type: _types.ADD_POST_SUCCESS, payload: response.data });
+      _history2.default.push('/');
     }).catch(function (err) {
       dispatch({ type: _types.ADD_POST_REJECTED, payload: err });
     });
@@ -27607,7 +27635,7 @@ var createPost = function createPost(post) {
 
 var upVote = function upVote(key) {
   return function (dispatch) {
-    _axios2.default.post('http://localhost:8089/v2/post/upvote/' + key).then(function (response) {
+    _axios2.default.post(_config.host + 'post/upvote/' + key).then(function (response) {
       dispatch({ type: _types.UPVOTE_POST_SUCCESS, payload: response.data });
     }).catch(function (err) {
       dispatch({ type: _types.UPVOTE_POST_REJECTED, payload: err });
@@ -27617,7 +27645,7 @@ var upVote = function upVote(key) {
 
 var downVote = function downVote(key) {
   return function (dispatch) {
-    _axios2.default.post('http://localhost:8089/v2/post/downvote/' + key).then(function (response) {
+    _axios2.default.post(_config.host + 'post/downvote/' + key).then(function (response) {
       dispatch({ type: _types.DOWNVOTE_POST_SUCCESS, payload: response.data });
     }).catch(function (err) {
       dispatch({ type: _types.DOWNVOTE_POST_REJECTED, payload: err });
@@ -28578,6 +28606,8 @@ var _redux = __webpack_require__(9);
 
 var _actions = __webpack_require__(47);
 
+var _reactRouterDom = __webpack_require__(40);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28639,12 +28669,18 @@ var AddPost = function (_Component) {
               { htmlFor: 'title' },
               'Post Title'
             ),
-            _react2.default.createElement('input', { id: 'title', className: 'form-control', name: 'title', placeholder: 'Please enter post title', value: title, onChange: this.onChange })
+            _react2.default.createElement('input', { id: 'title', className: 'form-control', name: 'title', placeholder: 'Please enter post title', value: title, onChange: this.onChange, maxLength: '255' })
           ),
           _react2.default.createElement(
             'button',
             { type: 'submit', className: 'btn btn-primary' },
             'Submit'
+          ),
+          '\xA0\xA0',
+          _react2.default.createElement(
+            _reactRouterDom.NavLink,
+            { to: '/' },
+            'Cancel'
           )
         )
       );
@@ -28728,6 +28764,53 @@ exports.default = function () {
       return state;
   }
 };
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _history = __webpack_require__(6);
+
+var history = (0, _history.createBrowserHistory)();
+
+exports.default = history;
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.host = undefined;
+
+var _config = __webpack_require__(145);
+
+exports.host = _config.host;
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var host = 'http://localhost:8089/v2/';
+
+exports.host = host;
 
 /***/ })
 /******/ ]);
