@@ -33,7 +33,7 @@ class Home extends Component {
           <div className='col-sm'>
             <ul className='list-group'>
               {this.props.posts.length > 0 ? '' : (<li className='list-group-item'>No topic found</li>)}
-              {this.props.posts.sort((a, b) => b.upvote - a.upvote).slice(0, 10).map((post, i) => {
+              {this.props.posts.sort((a, b) => b.upvote - a.upvote).slice(0, 20).map((post, i) => {
                 return (
                   <li key={i} className='list-group-item'>
                     <div className='post-container'>
