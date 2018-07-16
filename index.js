@@ -14,5 +14,5 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
-http.createServer(app).listen(8088)
+http.createServer(app).listen(80)
 module.exports = app
